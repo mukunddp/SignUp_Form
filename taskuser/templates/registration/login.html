@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5 h-150">
+    <div class="container py-5 h-150">
+        <div class="row d-flex justify-content-center align-items-center h-150">
+            <div class="col col-lg-8 col-xl-7">
+                <div class="card">
+
+                    <div class="container text-center mt-4  ">
+                            <h2>Log In !</h2>
+
+                        <hr>
+                        {% if form.errors %}
+                        <p style="color: red">Your username and password didn't match. Please try again.</p>
+                        {% endif %}
+
+                        <form method="post">
+                            {% csrf_token %}
+                            <div align="center">
+                                <div class="form-group col-md-4 me-2">
+                                    <label> User Name </label>
+                                    {{ form.username }}
+                                </div>
+                                <br>
+                                <div class="form-group col-md-4 me-2 ">
+                                    <label>Password</label>
+                                    {{ form.password }}
+                                </div>
+
+                                {% for error in form.errors %}
+                                <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+
+                                {% if form.help_text %}
+                                <p><small style="color: grey">{{ form.help_text }}</small></p>
+                                {% endif %}
+                            </div>
+<br>
+                            <div class="text-center   mt-1 p-1 " align="center">
+                                <button class="btn btn-primary " style="padding-left: 2.5rem; padding-right: 2.5rem;"
+                                        type="Submit">Login
+                                </button>
+                                <br>
+
+                                Don't have account? <a href="{% url 'signup' %}"> Sign Up </a>
+                                {{ form.errors }}
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
