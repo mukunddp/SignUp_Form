@@ -1,5 +1,5 @@
 "# SignUp_Form" 
-This is Sign Up and Login Form 
+This is Sign Up and login form for different types of users. On login redirect users to their respective dashboards.
 
 Redirect to Respective Dashboard 
 
